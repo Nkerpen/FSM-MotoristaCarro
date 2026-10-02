@@ -24,7 +24,7 @@ Como o projeto utiliza apenas Java padrão, sem bibliotecas externas, a execuç�
 4. Navegue até o arquivo `Main.java` localizado em `src/Main.java`.
 5. Execute a classe `Main` clicando no botão de "Run" da sua IDE.
 
-## 👀 Como observar as transições nos logs
+## Como observar as transições nos logs
 
 A simulação está configurada para rodar um loop de exatos **30 ticks**, com intervalo de 1 segundo entre eles. 
 Para observar as transições:
