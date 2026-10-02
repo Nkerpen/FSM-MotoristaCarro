@@ -10,10 +10,27 @@ O projeto simula a interação entre dois agentes: um **Motorista** (Agente A) e
     *   `Dirigindo`: Estado principal. O motorista faz o carro andar.
     *   `Abastecendo`: O motorista para o carro para encher o tanque.
     *   `Lavando`: O motorista para o carro para limpá-lo.
+      stateDiagram-v2
+    [*] --> Dirigindo : Início
+    
+    Dirigindo --> Abastecendo : Combustível <= 0
+    Dirigindo --> Lavando : Sujeira >= 100
+    
+    Abastecendo --> Dirigindo : Combustível >= 100
+    Abastecendo --> Lavando : Sujeira >= 100
+    
+    Lavando --> Dirigindo : Sujeira <= 0
+    
 *   **Agente B (Carro)**
     *   `Andando`: O carro está em movimento, consumindo combustível (-20/tick) e gerando sujeira (+10/tick).
     *   `Parado`: O carro está inativo aguardando as ações do motorista.
+       stateDiagram-v2
+    [*] --> Andando : Início
+    
+    Andando --> Parado : Recebe comando (Abastecer/Lavar)
+    Parado --> Andando : Recebe comando (Dirigir)
 
+  
 ## Como compilar e rodar
 
 Como o projeto utiliza apenas Java padrão, sem bibliotecas externas, a execução é bastante simples:
